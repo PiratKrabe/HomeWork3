@@ -73,9 +73,15 @@ public class User {
     } //- добавляет заработную плату к балансу пользователя
 
     void withdraw(int summ) {
-        if (summ<0){throw new IllegalArgumentException("Incorect summ");
-        if (summ<1000&&summ>0){setBalance(getBalance()-summ-(summ*0.05)};
-        if (summ>=1000){setBalance(getBalance()-summ-(summ*0.10)};
+        if (summ < 0) {
+            throw new IllegalArgumentException("Incorect summ");
+        }
+        if (summ < 1000 && summ > 0) {
+            setBalance((int) (getBalance() - summ - (summ * 0.05)));
+        }
+        if (summ >= 1000) {
+            setBalance((int) (getBalance() - summ - (summ * 0.10)));
+        }
     }// - снимает деньги с баланса с комиссией 5%, если сумма < 1000 и комиссией 10% в других случаях
 
     public int companyNameLenght() {
