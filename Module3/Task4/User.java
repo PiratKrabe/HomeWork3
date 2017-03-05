@@ -19,7 +19,19 @@ public class User {
         this.salary = salary;
         this.currency = currency;
     }
+    public enum BalancesEnums {
+        BALANCEZERO(0), BALANCE1000(1000), ;
 
+        BalancesEnums(int id) {
+            this.id = id;
+        }
+
+        private int id;
+
+        public int getValue() {
+            return id;
+        }
+    }
     public String getName() {
         return name;
     }
@@ -70,25 +82,24 @@ public class User {
 
     void paySalary() {
         setBalance(getBalance() + getSalary());
-    } //- добавляет заработную плату к балансу пользователя
+    }
 
     void withdraw(int summ) {
-        if (summ < 0) {
+        if (summ < BalancesEnums.BALANCEZERO.getValue()) {
             throw new IllegalArgumentException("Incorect summ");
         }
-        if (summ < 1000 && summ > 0) {
+        if (summ < BalancesEnums.BALANCE1000.getValue() && summ > BalancesEnums.BALANCEZERO.getValue()) {
             setBalance((int) (getBalance() - summ - (summ * 0.05)));
         }
-        if (summ >= 1000) {
+        if (summ >= BalancesEnums.BALANCE1000.getValue()) {
             setBalance((int) (getBalance() - summ - (summ * 0.10)));
         }
-    }// - снимает деньги с баланса с комиссией 5%, если сумма < 1000 и комиссией 10% в других случаях
+    }
 
     public int companyNameLenght() {
         return getCompanyName().length();
-    }   //- вычисляет длину имя компании
-
+    }
     void monthIncreaser(int addMonth) {
         setMonthsOfEmployment(getMonthsOfEmployment() + addMonth);
-    }// - увеличивает monthsOfEmployment на addMonth
+    }
 }

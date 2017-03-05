@@ -44,7 +44,7 @@ public class Course {
     }
 
     public Course(int startDate, String name) {
-        this.startDate = startDate;
+        //this.startDate = startDate;
         this.name = name;
     }
 
