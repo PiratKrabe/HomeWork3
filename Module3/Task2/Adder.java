@@ -5,11 +5,7 @@ package alexey_efimenko.Module3.Task2;
  */
 public class Adder extends Arithmetic {
 
-    public static boolean check(Integer a, Integer b) {
-        if (a >= b) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean check(Integer a, Integer b) {
+        return a>=b;
     }
 }

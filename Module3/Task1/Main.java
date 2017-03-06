@@ -6,9 +6,9 @@ package alexey_efimenko.Module3.Task1;
 public class Main {
     public static void main(String[] args) {
         Bird s = new Bird();
-        s.walking();
-        s.flying();
-        s.singing();
-        s.bird();
+        s.sing("I am walking");
+        s.sing("I am flying");
+        s.sing("I am singing");
+        s.sing("I am Bird");
     }
 }
